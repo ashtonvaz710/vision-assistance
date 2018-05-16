@@ -1,0 +1,14 @@
+.va-preferences {
+    padding-bottom: 15%;
+    /*To align it center vertically and horizontally*/
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.va-padding-for-line {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}

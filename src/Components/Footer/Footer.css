@@ -1,0 +1,55 @@
+.va-footer-main {
+    position: fixed;
+    bottom: 0;
+    background-color: antiquewhite;
+    width: 100%;
+}
+
+.va-upload-image-button {
+    background-color: green;
+}
+
+.va-capture-image-button {
+    background-color: darkseagreen;
+}
+
+.va-preferences-button {
+    background-color: green;
+}
+
+.va-upload-image-button-text {
+    color: white;
+    /*To align it center vertically and horizontally*/
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.va-capture-image-button-text {
+    color: white;
+    /*To align it center vertically and horizontally*/
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.va-preferences-button-text {
+    color: white;
+    /*To align it center vertically and horizontally*/
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.va-vertical-line {
+    height: 100px;
+    width: 0;
+    position: relative;
+    border-left: 0 solid white;
+}

@@ -1,0 +1,14 @@
+.va-captureImage-buttons {
+    position: absolute;
+    width: 100%;
+    bottom: 20%;
+}
+
+.va-captureImage-webcam-image {
+    padding-top: 20px;
+    margin: auto;
+}
+
+.va-captureImage-image {
+    max-height: 400px;
+}

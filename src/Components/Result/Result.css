@@ -1,0 +1,30 @@
+.va-result-image {
+    padding-top: 20px;
+    max-height: 400px;
+    max-width: 600px;
+    margin: auto;
+}
+
+.va-pause-resume-buttons {
+    position: absolute;
+    width: 100%;
+    bottom: 20%;
+}
+
+.va-results {
+    padding-left: 40px;
+    padding-top: 20px;
+}
+
+.va-results-panel {
+    overflow: inherit;
+}
+
+.va-results-error {
+    /*To align it center vertically and horizontally*/
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}

@@ -1,0 +1,17 @@
+.va-upload-image-content {
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.va-clear-submit {
+    position: absolute;
+    width: 100%;
+    bottom: 20%;
+}
+
+.va-upload-image {
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 400px;
+    max-width: 600px;
+}

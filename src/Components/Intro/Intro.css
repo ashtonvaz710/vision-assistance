@@ -1,0 +1,9 @@
+.va-intro-main {
+    background-color: blue;
+    height: 100vh;
+    padding-top: 20px;
+}
+
+va-intro-name {
+    color: white;
+}
