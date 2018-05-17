@@ -8,6 +8,8 @@ import FaceAnnotations from "./FaceAnnotations/FaceAnnotations";
 import LabelAnnotations from "./LabelAnnotations/LabelAnnotations";
 import CONSTANTS from '../constants';
 import ERRORS from "../errors";
+import {Client, Feature, Request, Image} from 'vision-cloud-api';
+
 
 class Result extends Component {
     constructor() {
@@ -117,41 +119,76 @@ class Result extends Component {
         return response;
     }
 
-    apiCall(image) {
-        const vision = require('react-cloud-vision-api');
-        vision.init({auth: CONSTANTS.API_KEY});
-        const req = new vision.Request({
-            image: new vision.Image({
-                base64: image,
-            }),
-            features: [
-                new vision.Feature('TEXT_DETECTION', 4),
-                new vision.Feature('LOGO_DETECTION', 10),
-                new vision.Feature('LANDMARK_DETECTION', 10),
-                new vision.Feature('FACE_DETECTION', 10),
-                new vision.Feature('LABEL_DETECTION', 10)
-            ]
-        });
+    apiCall(image1) {
+        const auth = CONSTANTS.API_KEY;
+        const feature1 = new Feature('TEXT_DETECTION');
+        const feature2 = new Feature('LOGO_DETECTION');
+        const feature3 = new Feature('LANDMARK_DETECTION');
+        const feature4 = new Feature('FACE_DETECTION');
+        const feature5 = new Feature('LABEL_DETECTION');
+        const features = [feature1, feature2, feature3, feature4, feature5];
 
-        vision.annotate(req).then(res => {
+        const base64 = image1;
+        const image = new Image({base64});
+        image.build();
 
-            // Handling response
-            console.log(res.responses);
-            if (res.responses[0].error) {
-                this.setState({errorMessage: ERRORS.INCORRECT_IMAGE_TYPE});
-            } else {
-                let response = this.getAnnotationsFromResponse(res);
-                if (response === {}) {
-                    this.setState({errorMessage: ERRORS.NO_RESPONSE});
+        const request = new Request({image, features});
+
+        const client = new Client({auth});
+
+        client.annotate([request]).then(
+            res => {
+                // Handling response
+                console.log(res.responses);
+                if (res.responses[0].error) {
+                    this.setState({errorMessage: ERRORS.INCORRECT_IMAGE_TYPE});
                 } else {
-                    this.setState({image_response: response});
+                    let response = this.getAnnotationsFromResponse(res);
+                    if (response === {}) {
+                        this.setState({errorMessage: ERRORS.NO_RESPONSE});
+                    } else {
+                        this.setState({image_response: response});
+                    }
                 }
-            }
-        }, error => {
-            this.setState({errorMessage: ERRORS.API_ERROR});
-        });
-    }
+            }, error => {
+                this.setState({errorMessage: ERRORS.API_ERROR});
+            });
 
+        // -----------------------
+
+        // const vision = require('react-cloud-vision-api');
+        // vision.init({auth: CONSTANTS.API_KEY});
+        // const req = new vision.Request({
+        //     image: new vision.Image({
+        //         base64: image,
+        //     }),
+        //     features: [
+        //         new vision.Feature('TEXT_DETECTION', 4),
+        //         new vision.Feature('LOGO_DETECTION', 10),
+        //         new vision.Feature('LANDMARK_DETECTION', 10),
+        //         new vision.Feature('FACE_DETECTION', 10),
+        //         new vision.Feature('', 10)
+        //     ]
+        // });
+        //
+        // vision.annotate(req).then(res => {
+        //
+        //     // Handling response
+        //     console.log(res.responses);
+        //     if (res.responses[0].error) {
+        //         this.setState({errorMessage: ERRORS.INCORRECT_IMAGE_TYPE});
+        //     } else {
+        //         let response = this.getAnnotationsFromResponse(res);
+        //         if (response === {}) {
+        //             this.setState({errorMessage: ERRORS.NO_RESPONSE});
+        //         } else {
+        //             this.setState({image_response: response});
+        //         }
+        //     }
+        // }, error => {
+        //     this.setState({errorMessage: ERRORS.API_ERROR});
+        // });
+    }
     handlePause() {
         this.setState({pause_voice: true});
         this.setState({play_voice: false});
