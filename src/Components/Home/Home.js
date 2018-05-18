@@ -30,10 +30,10 @@ class Home extends Component {
                 </div>
                 <br/>
                 <div>
-                    Upload Image - Lets you select a local image
+                    Upload Image - Allows you select a local image
                 </div>
                 <div>
-                    Capture Image - Lets you capture an image using the webcam
+                    Capture Image - Allows you capture an image using the webcam
                 </div>
                 <div>
                     Preferences - Allows you to configure settings as to your convenience
