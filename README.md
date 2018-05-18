@@ -1,5 +1,8 @@
 # Vision Assistance - A tool for the visually impaired to detect objects and text in images
 
+This app is running on
+[https://sleepy-citadel-41315.herokuapp.com/](https://sleepy-citadel-41315.herokuapp.com/)
+
 ## Upload Image
 Allows you select a local image
 
